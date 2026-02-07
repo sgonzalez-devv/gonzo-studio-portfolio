@@ -58,6 +58,15 @@ export function ProjectForm({ project }: ProjectFormProps) {
     const supabase = createClient();
 
     try {
+      // Get the current user
+      const { data: { user } } = await supabase.auth.getUser();
+      
+      if (!user) {
+        console.error("User not authenticated");
+        setIsSubmitting(false);
+        return;
+      }
+
       if (project?.id) {
         // Update existing project
         await supabase
@@ -65,8 +74,11 @@ export function ProjectForm({ project }: ProjectFormProps) {
           .update(formData)
           .eq("id", project.id);
       } else {
-        // Create new project
-        await supabase.from("projects").insert(formData);
+        // Create new project - include user_id
+        await supabase.from("projects").insert({
+          ...formData,
+          user_id: user.id
+        });
       }
 
       router.push("/admin/projects");
