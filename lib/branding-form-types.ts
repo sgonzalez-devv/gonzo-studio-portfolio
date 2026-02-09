@@ -43,7 +43,7 @@ export interface BrandingFormData {
 
   // Step 7 - Final Details
   restrictions?: string;
-  references?: string;
+  brandReferences?: string;
   additionalNotes?: string;
 
   // Meta

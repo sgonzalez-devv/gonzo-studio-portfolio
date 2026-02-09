@@ -37,18 +37,18 @@ export function Step7FinalDetails({ data, updateData }: StepProps) {
         />
       </div>
 
-      {/* References */}
+      {/* Brand References */}
       <div className="space-y-3">
-        <Label htmlFor="references" className="text-base font-medium">
+        <Label htmlFor="brandReferences" className="text-base font-medium">
           ¿Hay referencias visuales, ideas o archivos que quieras compartir?
         </Label>
         <p className="text-sm text-muted-foreground -mt-1">
           Opcional · Links, imágenes, moodboards, cualquier cosa que ayude
         </p>
         <Textarea
-          id="references"
-          value={data.references || ""}
-          onChange={(e) => updateData({ references: e.target.value })}
+          id="brandReferences"
+          value={data.brandReferences || ""}
+          onChange={(e) => updateData({ brandReferences: e.target.value })}
           placeholder="Pega aquí links, describe ideas visuales, o menciona cualquier referencia..."
           className="min-h-32 resize-none"
         />

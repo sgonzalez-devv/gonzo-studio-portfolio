@@ -42,7 +42,7 @@ CREATE TABLE public.branding_forms (
   
   -- Step 7: Final Details
   restrictions TEXT,
-  references TEXT,
+  brand_references TEXT,
   additional_notes TEXT,
   user_email TEXT,
   

@@ -57,17 +57,42 @@ export function BrandingFormWizard() {
     setIsSubmitting(true);
     
     try {
-      // Add submission timestamp
-      const finalData = {
-        ...formData,
-        submittedAt: new Date(),
+      // Transform camelCase to snake_case for database
+      const dbData = {
+        current_stage: formData.currentStage,
+        brand_goal: formData.brandGoal,
+        problem_solving: formData.problemSolving,
+        current_frustrations: formData.currentFrustrations,
+        brand_descriptors: formData.brandDescriptors,
+        tone_formal_casual: formData.toneScale?.formalCasual,
+        tone_serious_fun: formData.toneScale?.seriousFun,
+        tone_premium_accessible: formData.toneScale?.premiumAccessible,
+        like_brands: formData.likeBrands,
+        dislike_brands: formData.dislikeBrands,
+        brand_name: formData.brandName,
+        slogan: formData.slogan,
+        domains: formData.domains,
+        name_type: formData.nameType,
+        target_audience: formData.targetAudience,
+        market: formData.market,
+        business_type: formData.businessType,
+        contexts: formData.contexts,
+        context_details: formData.contextDetails,
+        branding_level: formData.brandingLevel,
+        deadline: formData.deadline,
+        budget_range: formData.budgetRange,
+        restrictions: formData.restrictions,
+        brand_references: formData.brandReferences,
+        additional_notes: formData.additionalNotes,
+        user_email: formData.userEmail,
+        submitted_at: new Date().toISOString(),
       };
 
       // Send to API
       const response = await fetch('/api/branding-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(finalData),
+        body: JSON.stringify(dbData),
       });
 
       if (response.ok) {
