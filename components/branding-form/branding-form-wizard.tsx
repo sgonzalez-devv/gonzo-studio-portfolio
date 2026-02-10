@@ -11,6 +11,7 @@ import type { BrandingFormData } from "@/lib/branding-form-types";
 // Import step components
 import { Step1StartingPoint } from "./steps/step-1-starting-point";
 import { Step2Personality } from "./steps/step-2-personality";
+import { Step3VisualAssets } from "./steps/step-3-visual-assets";
 import { Step3NameBasics } from "./steps/step-3-name-basics";
 import { Step4AudienceMarket } from "./steps/step-4-audience-market";
 import { Step5BrandContexts } from "./steps/step-5-brand-contexts";
@@ -20,11 +21,12 @@ import { Step7FinalDetails } from "./steps/step-7-final-details";
 const STEPS = [
   { id: 1, title: "Punto de partida", description: "Cuéntanos dónde estás hoy" },
   { id: 2, title: "Personalidad", description: "Cómo debería sentirse tu marca" },
-  { id: 3, title: "Nombre y básicos", description: "Si ya tienes algo definido" },
-  { id: 4, title: "Público y mercado", description: "A quién le hablas" },
-  { id: 5, title: "Dónde vivirá", description: "Contextos de uso" },
-  { id: 6, title: "Profundidad", description: "Qué nivel de branding buscas" },
-  { id: 7, title: "Últimos detalles", description: "Referencias y extras" },
+  { id: 3, title: "Recursos visuales", description: "Colores, logo e inspiración" },
+  { id: 4, title: "Nombre y básicos", description: "Si ya tienes algo definido" },
+  { id: 5, title: "Público y mercado", description: "A quién le hablas" },
+  { id: 6, title: "Dónde vivirá", description: "Contextos de uso" },
+  { id: 7, title: "Profundidad", description: "Qué nivel de branding buscas" },
+  { id: 8, title: "Últimos detalles", description: "Referencias y extras" },
 ];
 
 export function BrandingFormWizard() {
@@ -69,6 +71,9 @@ export function BrandingFormWizard() {
         tone_premium_accessible: formData.toneScale?.premiumAccessible,
         like_brands: formData.likeBrands,
         dislike_brands: formData.dislikeBrands,
+        color_palette: formData.colorPalette,
+        logo_file_url: formData.logoFileUrl,
+        inspiration_images: formData.inspirationImages,
         brand_name: formData.brandName,
         slogan: formData.slogan,
         domains: formData.domains,
@@ -116,14 +121,16 @@ export function BrandingFormWizard() {
       case 2:
         return <Step2Personality data={formData} updateData={updateFormData} />;
       case 3:
-        return <Step3NameBasics data={formData} updateData={updateFormData} />;
+        return <Step3VisualAssets data={formData} updateData={updateFormData} />;
       case 4:
-        return <Step4AudienceMarket data={formData} updateData={updateFormData} />;
+        return <Step3NameBasics data={formData} updateData={updateFormData} />;
       case 5:
-        return <Step5BrandContexts data={formData} updateData={updateFormData} />;
+        return <Step4AudienceMarket data={formData} updateData={updateFormData} />;
       case 6:
-        return <Step6BrandingDepth data={formData} updateData={updateFormData} />;
+        return <Step5BrandContexts data={formData} updateData={updateFormData} />;
       case 7:
+        return <Step6BrandingDepth data={formData} updateData={updateFormData} />;
+      case 8:
         return <Step7FinalDetails data={formData} updateData={updateFormData} />;
       default:
         return null;

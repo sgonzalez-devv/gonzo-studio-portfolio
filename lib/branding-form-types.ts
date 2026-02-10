@@ -46,6 +46,11 @@ export interface BrandingFormData {
   brandReferences?: string;
   additionalNotes?: string;
 
+  // Enhanced inputs
+  colorPalette?: { name: string; hex: string }[];
+  logoFileUrl?: string;
+  inspirationImages?: string[];
+
   // Meta
   submittedAt?: Date;
   userEmail?: string;
