@@ -180,14 +180,6 @@ export function BrandingFormWizard() {
                     <span className="text-sm font-medium">{step.id}</span>
                   )}
                 </div>
-                {index < STEPS.length - 1 && (
-                  <div
-                    className={`
-                      h-0.5 w-full mt-5 -ml-full transition-all duration-200
-                      ${currentStep > step.id ? "bg-primary" : "bg-muted"}
-                    `}
-                  />
-                )}
               </div>
             ))}
           </div>

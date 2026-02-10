@@ -34,33 +34,45 @@ export function Step1StartingPoint({ data, updateData }: StepProps) {
           onValueChange={(value) => updateData({ currentStage: value as any })}
           className="space-y-3"
         >
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="stage-idea" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="idea" id="stage-idea" />
-            <Label htmlFor="stage-idea" className="cursor-pointer flex-1 font-normal">
+            <span className="flex-1 font-normal">
               Solo una idea
-            </Label>
-          </div>
+            </span>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="stage-building" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="building" id="stage-building" />
-            <Label htmlFor="stage-building" className="cursor-pointer flex-1 font-normal">
+            <span className="flex-1 font-normal">
               Proyecto en construcción
-            </Label>
-          </div>
+            </span>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="stage-operating" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="operating" id="stage-operating" />
-            <Label htmlFor="stage-operating" className="cursor-pointer flex-1 font-normal">
+            <span className="flex-1 font-normal">
               Empresa ya operando
-            </Label>
-          </div>
+            </span>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="stage-undefined" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="undefined" id="stage-undefined" />
-            <Label htmlFor="stage-undefined" className="cursor-pointer flex-1 font-normal">
+            <span className="flex-1 font-normal">
               Prefiero no definirlo aún
-            </Label>
-          </div>
+            </span>
+          </Label>
         </RadioGroup>
       </div>
 

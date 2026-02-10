@@ -34,53 +34,65 @@ export function Step6BrandingDepth({ data, updateData }: StepProps) {
           onValueChange={(value) => updateData({ brandingLevel: value as any })}
           className="space-y-3"
         >
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="level-basic" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="basic" id="level-basic" />
             <div className="flex-1">
-              <Label htmlFor="level-basic" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 Básico (logo + colores)
-              </Label>
+              </span>
               <p className="text-xs text-muted-foreground mt-1">
                 Lo esencial para empezar: logo, paleta de colores, tipografía básica
               </p>
             </div>
-          </div>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="level-professional" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="professional" id="level-professional" />
             <div className="flex-1">
-              <Label htmlFor="level-professional" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 Profesional (sistema visual completo)
-              </Label>
+              </span>
               <p className="text-xs text-muted-foreground mt-1">
                 Identidad completa: logo system, guía de marca, templates, papelería
               </p>
             </div>
-          </div>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="level-premium" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="premium" id="level-premium" />
             <div className="flex-1">
-              <Label htmlFor="level-premium" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 Premium (branding + motion + UI + guías avanzadas)
-              </Label>
+              </span>
               <p className="text-xs text-muted-foreground mt-1">
                 Sistema completo: todo lo anterior + motion design, UI kit, guías extendidas
               </p>
             </div>
-          </div>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="level-unsure" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="unsure" id="level-unsure" />
             <div className="flex-1">
-              <Label htmlFor="level-unsure" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 No estoy seguro aún
-              </Label>
+              </span>
               <p className="text-xs text-muted-foreground mt-1">
                 No hay problema, podemos hablarlo después
               </p>
             </div>
-          </div>
+          </Label>
         </RadioGroup>
       </div>
 
@@ -115,48 +127,60 @@ export function Step6BrandingDepth({ data, updateData }: StepProps) {
           onValueChange={(value) => updateData({ budgetRange: value as any })}
           className="space-y-3"
         >
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="budget-none" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="none" id="budget-none" />
-            <Label htmlFor="budget-none" className="cursor-pointer flex-1 font-normal">
+            <span className="flex-1 font-normal">
               Aún no
-            </Label>
-          </div>
+            </span>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="budget-low" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="low" id="budget-low" />
             <div className="flex-1">
-              <Label htmlFor="budget-low" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 Bajo
-              </Label>
+              </span>
               <p className="text-xs text-muted-foreground mt-1">
                 Proyecto inicial o emprendimiento
               </p>
             </div>
-          </div>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="budget-medium" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="medium" id="budget-medium" />
             <div className="flex-1">
-              <Label htmlFor="budget-medium" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 Medio
-              </Label>
+              </span>
               <p className="text-xs text-muted-foreground mt-1">
                 Empresa establecida o en crecimiento
               </p>
             </div>
-          </div>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="budget-high" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="high" id="budget-high" />
             <div className="flex-1">
-              <Label htmlFor="budget-high" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 Alto
-              </Label>
+              </span>
               <p className="text-xs text-muted-foreground mt-1">
                 Proyecto premium con alcance completo
               </p>
             </div>
-          </div>
+          </Label>
         </RadioGroup>
       </div>
     </div>

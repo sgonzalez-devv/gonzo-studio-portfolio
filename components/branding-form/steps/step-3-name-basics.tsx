@@ -86,62 +86,77 @@ export function Step3NameBasics({ data, updateData }: StepProps) {
           onValueChange={(value) => updateData({ nameType: value as any })}
           className="space-y-3"
         >
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="name-descriptive" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="descriptive" id="name-descriptive" />
             <div className="flex-1">
-              <Label htmlFor="name-descriptive" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 Descriptivo
-              </Label>
+              </span>
               <p className="text-xs text-muted-foreground mt-1">
                 Ej: Digital Solutions, Coffee House
               </p>
             </div>
-          </div>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="name-creative" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="creative" id="name-creative" />
             <div className="flex-1">
-              <Label htmlFor="name-creative" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 Creativo
-              </Label>
+              </span>
               <p className="text-xs text-muted-foreground mt-1">
                 Ej: Spotify, Uber, Canva
               </p>
             </div>
-          </div>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="name-abstract" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="abstract" id="name-abstract" />
             <div className="flex-1">
-              <Label htmlFor="name-abstract" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 Abstracto
-              </Label>
+              </span>
               <p className="text-xs text-muted-foreground mt-1">
                 Ej: Nike, Kodak, Xerox
               </p>
             </div>
-          </div>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="name-personal" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="personal" id="name-personal" />
             <div className="flex-1">
-              <Label htmlFor="name-personal" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 Personal
-              </Label>
+              </span>
               <p className="text-xs text-muted-foreground mt-1">
                 Ej: Basado en tu nombre o iniciales
               </p>
             </div>
-          </div>
+          </Label>
           
-          <div className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer">
+          <Label 
+            htmlFor="name-undecided" 
+            className="flex items-center space-x-3 p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors cursor-pointer"
+          >
             <RadioGroupItem value="undecided" id="name-undecided" />
             <div className="flex-1">
-              <Label htmlFor="name-undecided" className="cursor-pointer font-normal">
+              <span className="font-normal block">
                 No lo he pensado aún
-              </Label>
+              </span>
             </div>
-          </div>
+          </Label>
         </RadioGroup>
       </div>
     </div>

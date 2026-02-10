@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, FolderKanban, Settings, LogOut, Home } from "lucide-react";
+import { LayoutDashboard, FolderKanban, Settings, LogOut, Home, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { createClient } from "@/lib/supabase/client";
@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 const navItems = [
   { href: "/admin", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/admin/projects", icon: FolderKanban, label: "Projects" },
+  { href: "/admin/branding-proposals", icon: Sparkles, label: "Branding Proposals" },
   { href: "/admin/settings", icon: Settings, label: "Settings" },
 ];
 
