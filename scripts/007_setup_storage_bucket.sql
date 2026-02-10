@@ -1,45 +1,83 @@
 -- Create Storage Bucket for branding files
 -- This needs to be run in the Supabase SQL Editor
 
--- Note: Storage buckets are created via the Supabase Dashboard or SDK, not SQL
--- But we can set up the policies
+-- STEP 1: Create the bucket via Supabase Dashboard
+-- Go to Storage > Create new bucket
+-- Name: branding-files
+-- Public: true
+-- File size limit: 10MB
+-- Allowed MIME types: image/*
 
--- Instructions to create bucket via Dashboard:
--- 1. Go to Storage in Supabase Dashboard
--- 2. Click "New Bucket"
--- 3. Name: branding-files
--- 4. Public: true (so files are publicly accessible)
--- 5. File size limit: 10MB
--- 6. Allowed MIME types: image/*
+-- STEP 2: Run these SQL policies for the bucket
 
--- Storage policies for branding-files bucket
--- These policies need to be set in the Storage > Policies section
+-- Policy 1: Allow public to read/view files
+INSERT INTO storage.policies (name, bucket_id, definition)
+VALUES (
+  'Public Access',
+  'branding-files',
+  'true'
+);
 
--- Policy: Allow public read
--- Bucket: branding-files
--- Operation: SELECT
--- Policy definition: true
+-- Policy 2: Allow anyone to upload files (for form submissions)
+INSERT INTO storage.policies (name, bucket_id, definition, operation)
+VALUES (
+  'Public Upload',
+  'branding-files',
+  'true',
+  'INSERT'
+);
 
--- Policy: Allow authenticated insert (admin only)
--- Bucket: branding-files
--- Operation: INSERT  
--- Policy definition: (auth.role() = 'authenticated')
+-- Policy 3: Allow authenticated users (admin) to delete files
+INSERT INTO storage.policies (name, bucket_id, definition, operation)
+VALUES (
+  'Authenticated Delete',
+  'branding-files',
+  '(auth.role() = ''authenticated'')',
+  'DELETE'
+);
 
--- Policy: Allow authenticated delete (admin only)
--- Bucket: branding-files
--- Operation: DELETE
--- Policy definition: (auth.role() = 'authenticated')
+-- Policy 4: Allow authenticated users (admin) to update files
+INSERT INTO storage.policies (name, bucket_id, definition, operation)
+VALUES (
+  'Authenticated Update',
+  'branding-files',
+  '(auth.role() = ''authenticated'')',
+  'UPDATE'
+);
 
--- Policy: Allow public insert (for form submissions)
--- Bucket: branding-files
--- Operation: INSERT
--- Policy definition: true
+-- Verify policies were created
+SELECT * FROM storage.policies WHERE bucket_id = 'branding-files';
 
 /*
-IMPORTANT: Since anyone can upload via the form, you should:
-1. Set file size limits (10MB max)
-2. Validate file types on the client
-3. Consider adding virus scanning
-4. Monitor storage usage
+IMPORTANT SECURITY NOTES:
+1. File size limits are set at bucket level (10MB recommended)
+2. MIME type validation should be done on client side
+3. Consider adding virus scanning in production
+4. Monitor storage usage regularly
 5. Implement cleanup for old/unused files
+6. Consider adding rate limiting for uploads
+
+ALTERNATIVE: If you prefer to set policies via Dashboard:
+1. Go to Storage > branding-files > Policies
+2. Create these policies:
+
+SELECT (Read):
+- Policy name: Public Access
+- Target roles: public
+- Policy definition: true
+
+INSERT (Upload):
+- Policy name: Public Upload  
+- Target roles: public
+- Policy definition: true
+
+DELETE:
+- Policy name: Authenticated Delete
+- Target roles: authenticated
+- Policy definition: (auth.role() = 'authenticated')
+
+UPDATE:
+- Policy name: Authenticated Update
+- Target roles: authenticated
+- Policy definition: (auth.role() = 'authenticated')
 */
