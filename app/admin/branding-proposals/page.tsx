@@ -25,12 +25,20 @@ export default async function BrandingProposalsPage() {
   }
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">Propuestas de Branding</h1>
-        <p className="text-muted-foreground mt-2">
-          Revisa las propuestas de branding enviadas por los clientes
-        </p>
+    <div className="space-y-8 p-8">
+      <div className="flex items-center justify-between">
+        <div className="space-y-2">
+          <h1 className="text-4xl font-bold tracking-tight">Propuestas de Branding</h1>
+          <p className="text-muted-foreground text-lg">
+            Revisa las propuestas de branding enviadas por los clientes
+          </p>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="text-right">
+            <p className="text-sm text-muted-foreground">Total de propuestas</p>
+            <p className="text-3xl font-bold">{proposals?.length || 0}</p>
+          </div>
+        </div>
       </div>
 
       <BrandingProposalsTable proposals={proposals || []} />
