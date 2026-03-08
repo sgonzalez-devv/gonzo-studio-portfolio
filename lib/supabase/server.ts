@@ -29,6 +29,13 @@ export async function createClient() {
           }
         },
       },
+      auth: {
+        // Configurar sesión para que expire en 24 horas
+        autoRefreshToken: true,
+        persistSession: true,
+        detectSessionInUrl: true,
+        flowType: 'pkce',
+      },
     },
   )
 }

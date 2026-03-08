@@ -45,29 +45,29 @@ export function ContactSection() {
                       ¿Listo para construir tu marca?
                     </h3>
                     <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                      Completa nuestro formulario de branding y cuéntanos sobre tu proyecto. 
-                      Es rápido, sencillo y completamente opcional en cada paso.
+                      Agenda una consulta gratuita conmigo. Selecciona una fecha y hora que te funcione 
+                      y charlemos sobre tu proyecto.
                     </p>
                   </div>
 
                   {/* Benefits */}
                   <div className="grid sm:grid-cols-3 gap-4 text-sm max-w-2xl mx-auto">
                     <div className="p-4 bg-background/50 backdrop-blur rounded-lg border border-border/50">
-                      <p className="font-medium text-foreground mb-1">Sin compromiso</p>
+                      <p className="font-medium text-foreground mb-1">Consulta gratuita</p>
                       <p className="text-muted-foreground text-xs">
-                        Todos los campos son opcionales
+                        Sin costo ni compromiso
                       </p>
                     </div>
                     <div className="p-4 bg-background/50 backdrop-blur rounded-lg border border-border/50">
-                      <p className="font-medium text-foreground mb-1">5-10 minutos</p>
+                      <p className="font-medium text-foreground mb-1">1 hora de reunión</p>
                       <p className="text-muted-foreground text-xs">
-                        Responde solo lo que quieras
+                        Por Google Meet
                       </p>
                     </div>
                     <div className="p-4 bg-background/50 backdrop-blur rounded-lg border border-border/50">
-                      <p className="font-medium text-foreground mb-1">Respuesta rápida</p>
+                      <p className="font-medium text-foreground mb-1">Agenda fácil</p>
                       <p className="text-muted-foreground text-xs">
-                        Te contactamos en 24-48h
+                        Solo toma 2 minutos
                       </p>
                     </div>
                   </div>
@@ -75,9 +75,14 @@ export function ContactSection() {
                   {/* CTA Button */}
                   <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
                     <Button asChild size="lg" className="gap-2 text-base px-8 h-14 shadow-lg">
-                      <Link href="/branding-form">
-                        Comenzar formulario
+                      <Link href="/book-appointment">
+                        Agendar Consulta Gratuita
                         <ArrowRight className="h-5 w-5" />
+                      </Link>
+                    </Button>
+                    <Button asChild variant="outline" size="lg" className="gap-2 text-base px-8 h-14">
+                      <Link href="/branding-form">
+                        O llena el formulario completo
                       </Link>
                     </Button>
                   </div>

@@ -28,6 +28,12 @@ export async function updateSession(request: NextRequest) {
           )
         },
       },
+      auth: {
+        autoRefreshToken: true,
+        persistSession: true,
+        detectSessionInUrl: true,
+        flowType: 'pkce',
+      },
     },
   )
 
@@ -40,6 +46,30 @@ export async function updateSession(request: NextRequest) {
   const {
     data: { user },
   } = await supabase.auth.getUser()
+
+  // Verificar si la sesión ha expirado (24 horas)
+  if (user) {
+    const session = await supabase.auth.getSession();
+    if (session.data.session) {
+      const expiresAt = session.data.session.expires_at;
+      if (expiresAt) {
+        const expiryTime = new Date(expiresAt * 1000);
+        const now = new Date();
+        
+        // Si la sesión ha expirado, cerrar sesión
+        if (expiryTime <= now) {
+          await supabase.auth.signOut();
+          
+          if (request.nextUrl.pathname.startsWith('/admin')) {
+            const url = request.nextUrl.clone();
+            url.pathname = '/auth/login';
+            url.searchParams.set('expired', 'true');
+            return NextResponse.redirect(url);
+          }
+        }
+      }
+    }
+  }
 
   // Protect admin routes
   if (request.nextUrl.pathname.startsWith('/admin') && !user) {
