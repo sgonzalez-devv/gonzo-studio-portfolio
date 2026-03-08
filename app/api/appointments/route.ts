@@ -3,7 +3,11 @@ import { createClient } from '@/lib/supabase/server';
 import { createCalendarEvent } from '@/lib/google-calendar';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Inicializar Resend solo si hay API key válida
+const resend = process.env.RESEND_API_KEY && 
+               process.env.RESEND_API_KEY !== 'PENDING_CREATE_RESEND_ACCOUNT' 
+  ? new Resend(process.env.RESEND_API_KEY) 
+  : null;
 
 export async function POST(request: NextRequest) {
   try {
@@ -59,7 +63,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Enviar email de confirmación adicional (opcional, ya que Google Calendar envía uno)
-    if (process.env.RESEND_API_KEY && process.env.BUSINESS_EMAIL) {
+    if (resend && process.env.BUSINESS_EMAIL) {
       try {
         await resend.emails.send({
           from: process.env.BUSINESS_EMAIL,
