@@ -58,6 +58,24 @@ export const translations = {
     contact: {
       title: "Let's Build Something Amazing",
       subtitle: "Ready to start your next project? We'd love to hear from you.",
+      heading: "Ready to Build Your Brand?",
+      description: "Schedule a free consultation with me. Pick a date and time that works for you, and let's chat about your project.",
+      benefits: {
+        free: {
+          title: "Free Consultation",
+          description: "No cost or commitment"
+        },
+        duration: {
+          title: "1 Hour Meeting",
+          description: "Via Google Meet"
+        },
+        easy: {
+          title: "Easy Scheduling",
+          description: "Just takes 2 minutes"
+        }
+      },
+      cta: "Schedule Free Consultation",
+      emailText: "Prefer to email directly?",
       form: {
         name: "Your Name",
         email: "Email Address",
@@ -132,6 +150,24 @@ export const translations = {
     contact: {
       title: "Construyamos Algo Increible",
       subtitle: "Listo para comenzar tu proximo proyecto? Nos encantaria saber de ti.",
+      heading: "¿Listo para Construir tu Marca?",
+      description: "Agenda una consulta gratuita conmigo. Selecciona una fecha y hora que te funcione, y charlemos sobre tu proyecto.",
+      benefits: {
+        free: {
+          title: "Consulta Gratuita",
+          description: "Sin costo ni compromiso"
+        },
+        duration: {
+          title: "Reunión de 1 Hora",
+          description: "Por Google Meet"
+        },
+        easy: {
+          title: "Agenda Fácil",
+          description: "Solo toma 2 minutos"
+        }
+      },
+      cta: "Agendar Consulta Gratuita",
+      emailText: "¿Prefieres escribir directamente?",
       form: {
         name: "Tu Nombre",
         email: "Correo Electronico",
